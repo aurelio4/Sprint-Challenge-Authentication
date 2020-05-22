@@ -28,8 +28,6 @@ router.post('/login', async (req, res) => {
     const { username, password } = req.body
     if (username && password) {
       const user = await Auth.findBy({ username })
-      console.log(user.password)
-      console.log(password)
       if (user && bcrypt.compareSync(password, user.password)) {
         const token = createToken(user)
         res.status(200).json({ success: 'logged in', token })

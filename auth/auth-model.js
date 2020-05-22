@@ -7,7 +7,7 @@ async function createUser(user) {
 }
 
 function findBy(filter) {
-	return db('users').where(filter)
+	return db('users').where(filter).first()
 }
 
 function loginUser(username) {
